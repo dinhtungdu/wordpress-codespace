@@ -13,7 +13,7 @@ RUN apt-get update && \
     apt-get install -y zip
 
 #Install Xdebug
-RUN pecl install "xdebug" \
+RUN pecl install "xdebug" || true \
     && docker-php-ext-enable xdebug
 RUN echo "xdebug.mode=debug" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
 RUN echo "xdebug.log=/var/www/html/xdebug.log" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
